@@ -1,0 +1,15 @@
+{
+    "name" : "lidaqi/mypackage",
+    "description" : "lidaqi/mypackage",
+    "license" : "MIT License",
+    "authors" : [{
+    "name" : "lidaqi",
+    "email" : "lidaqi962464@qq.com"
+    }],
+    "minimum-stability" : "dev",
+    "autoload" : { 
+        "psr-4" : { 
+            "MyPack\\" : "src/"
+        }
+    }
+}

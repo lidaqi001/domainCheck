@@ -1,15 +1,17 @@
 {
-    "name" : "lidaqi/domainCheck",
-    "description" : "lidaqi/domainCheck",
-    "license" : "MIT",
-    "authors" : [{
-    "name" : "lidaqi",
-    "email" : "lidaqi962464@qq.com"
-    }],
-    "minimum-stability" : "dev",
-    "autoload" : { 
-        "psr-4" : { 
-            "MyPack\\" : "src/"
+    "name": "lidaqi/domainCheck",
+    "description": "lidaqi/domainCheck",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lidaqi",
+            "email": "lidaqi962464@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "MyPack\\": "src/"
         }
     }
 }

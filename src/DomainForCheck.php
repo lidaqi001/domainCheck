@@ -12,12 +12,10 @@ class DomainForCheckService
     public $again = 3;
 
     // 微信域名状态查询api地址
-    public $apiUrl = 'http://wz5.tkc8.com/manage/api/check?token=81b5d6225dec44943f641305d711d052&url=';
+    public $apiUrl;
 
     // 钉钉机器人api地址
-//    public $webhook = 'https://oapi.dingtalk.com/robot/send?access_token=02c99aabecc74ded32d89952d052aa0c42ed05f2abb428fd367139ffef1cc475';
-    // 测试
-    public $webhook = 'https://oapi.dingtalk.com/robot/send?access_token=61c2d3d70e4846406808ec4f0d6cd371bd192cada633191e88da4740c05de050';
+    public $webhook;
 
     // 检测域名
     public function check($url)
@@ -35,13 +33,13 @@ class DomainForCheckService
     public function dingtalk($data)
     {
         // 测试数据
-//        $webhook = 'https://oapi.dingtalk.com/robot/send?access_token=61c2d3d70e4846406808ec4f0d6cd371bd192cada633191e88da4740c05de050';
+        //        $webhook = 'https://oapi.dingtalk.com/robot/send?access_token=61c2d3d70e4846406808ec4f0d6cd371bd192cada633191e88da4740c05de050';
 
-//        $message = "我就是我, 是不一样的烟火";
-//        $data = array('msgtype' => 'text', 'text' => array('content' => $message));
+        //        $message = "我就是我, 是不一样的烟火";
+        //        $data = array('msgtype' => 'text', 'text' => array('content' => $message));
 
-//        $markdown = "#### 杭州天气 \n> 9度，西北风1级，空气良89，相对温度73%\n\n> ![screenshot](https://gw.alipayobjects.com/zos/skylark-tools/public/files/84111bbeba74743d2771ed4f062d1f25.png)\n> ###### 10点20分发布 [天气](http://www.thinkpage.cn/) \n";
-//        $data = array('msgtype' => 'markdown', 'markdown' => array('title' => '测试', 'text' => $markdown));
+        //        $markdown = "#### 杭州天气 \n> 9度，西北风1级，空气良89，相对温度73%\n\n> ![screenshot](https://gw.alipayobjects.com/zos/skylark-tools/public/files/84111bbeba74743d2771ed4f062d1f25.png)\n> ###### 10点20分发布 [天气](http://www.thinkpage.cn/) \n";
+        //        $data = array('msgtype' => 'markdown', 'markdown' => array('title' => '测试', 'text' => $markdown));
 
         $data_string = json_encode($data);
         $result = self::httpRequest($this->webhook, [
@@ -59,7 +57,8 @@ class DomainForCheckService
                 self::httpRequest($search_url, [
                     'timeout' => $timeout
                 ]),
-                true);
+                true
+            );
             // 检测存在code，跳出循环
             if (isset($result['code']))
                 break;
@@ -95,7 +94,7 @@ class DomainForCheckService
                 break;
         }
         // 线下环境不用开启curl证书验证, 未调通情况可尝试添加该代码
-//         curl_setopt ($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        //         curl_setopt ($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
         $result = curl_exec($ch);
         curl_close($ch);

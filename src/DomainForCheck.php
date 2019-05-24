@@ -3,7 +3,7 @@
 namespace domainCheck\src;
 
 // @Title       DomainForCheckService
-// @author      liqi 2019/5/23
+// @author      lidaqi 2019/5/23
 // @Description 域名检测
 
 class DomainForCheckService
@@ -33,7 +33,6 @@ class DomainForCheckService
     public function dingtalk($data)
     {
         // 测试数据
-        //        $webhook = 'https://oapi.dingtalk.com/robot/send?access_token=61c2d3d70e4846406808ec4f0d6cd371bd192cada633191e88da4740c05de050';
 
         //        $message = "我就是我, 是不一样的烟火";
         //        $data = array('msgtype' => 'text', 'text' => array('content' => $message));
